@@ -48,6 +48,71 @@
       .animate-fade-in-out {
         animation: fade-in-out 4s ease-in-out;
       }
+
+      /* Enhanced time display animations */
+      @keyframes time-glow {
+        0%, 100% {
+          text-shadow:
+            0 0 20px rgba(186, 230, 253, 0.3),
+            0 0 40px rgba(186, 230, 253, 0.2),
+            0 0 80px rgba(186, 230, 253, 0.1),
+            0 0 120px rgba(14, 165, 233, 0.1);
+          filter: brightness(1.1);
+        }
+        50% {
+          text-shadow:
+            0 0 30px rgba(186, 230, 253, 0.5),
+            0 0 60px rgba(186, 230, 253, 0.3),
+            0 0 100px rgba(186, 230, 253, 0.2),
+            0 0 160px rgba(14, 165, 233, 0.2);
+          filter: brightness(1.3);
+        }
+      }
+
+      @keyframes time-pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.02); }
+      }
+
+      .time-digit-enhanced {
+        background: linear-gradient(135deg,
+          rgba(186, 230, 253, 1) 0%,
+          rgba(125, 211, 252, 0.9) 25%,
+          rgba(56, 189, 248, 0.8) 50%,
+          rgba(14, 165, 233, 0.9) 75%,
+          rgba(186, 230, 253, 1) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        filter: drop-shadow(0 0 30px rgba(186, 230, 253, 0.4));
+        animation: time-glow 3s ease-in-out infinite, time-pulse 4s ease-in-out infinite;
+        position: relative;
+      }
+
+      .time-digit-enhanced::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg,
+          rgba(186, 230, 253, 0.1) 0%,
+          rgba(14, 165, 233, 0.05) 50%,
+          rgba(186, 230, 253, 0.1) 100%);
+        border-radius: 20px;
+        z-index: -1;
+        animation: time-pulse 4s ease-in-out infinite reverse;
+      }
+
+      .time-separator-enhanced {
+        background: linear-gradient(135deg, rgba(186, 230, 253, 0.6), rgba(14, 165, 233, 0.4));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-shadow: 0 0 20px rgba(186, 230, 253, 0.3);
+        animation: time-pulse 2s ease-in-out infinite;
+      }
     </style>
   <script type="importmap">
 {

@@ -50,48 +50,62 @@ const ClockDisplay: React.FC = () => {
         <div className="text-sky-200/60 font-medium tracking-[0.4em] text-xs md:text-sm uppercase font-sans animate-fade-in mb-3">
           {time.date}
         </div>
-        <div className="flex items-center gap-4">
-          <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-sky-500"></div>
-          <h1 className="text-white text-base md:text-2xl font-bold tracking-[0.3em] uppercase font-sans drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">
+        <div className="flex items-center gap-6">
+          <div className="h-[2px] w-16 bg-gradient-to-r from-transparent via-sky-400 to-sky-300 rounded-full shadow-lg shadow-sky-400/30"></div>
+          <h1 className="text-white text-lg md:text-3xl font-black tracking-[0.4em] uppercase font-sans drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] transform hover:scale-105 transition-all duration-300" style={{
+            background: 'linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(186, 230, 253, 0.9) 50%, rgba(255,255,255,1) 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
+            textShadow: '0 0 30px rgba(186, 230, 253, 0.5), 0 0 60px rgba(14, 165, 233, 0.3)'
+          }}>
             Kazakhstan
           </h1>
-          <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-amber-500"></div>
+          <div className="h-[2px] w-16 bg-gradient-to-l from-transparent via-amber-400 to-amber-300 rounded-full shadow-lg shadow-amber-400/30"></div>
         </div>
       </div>
 
-      {/* Main Time Display - Massive */}
+      {/* Main Time Display - Enhanced Massive */}
       <div className="flex-1 flex flex-col items-center justify-center w-full relative perspective-1000">
-        
+
         {/* Container for alignment */}
         <div className="flex flex-col md:flex-row items-center justify-center leading-none transform transition-transform duration-1000">
-          
+
           {/* Hours */}
           <div className="relative group">
-            <span className="text-[50vw] md:text-[32vw] font-bold tracking-tighter icy-text font-mono transform hover:scale-105 transition-transform duration-700 ease-out select-none" style={{ textShadow: '0 0 60px rgba(186, 230, 253, 0.2)' }}>
+            <span className="text-[60vw] md:text-[38vw] font-black tracking-tighter time-digit-enhanced font-mono transform hover:scale-110 transition-all duration-500 ease-out select-none drop-shadow-2xl">
               {time.hours}
             </span>
           </div>
 
           {/* Separator - Hidden on mobile stack */}
-          <div className="hidden md:block text-[20vw] -mt-[4vw] px-4 text-sky-200/20 animate-pulse font-mono select-none">
+          <div className="hidden md:block text-[24vw] -mt-[6vw] px-4 time-separator-enhanced font-mono select-none font-bold">
             :
           </div>
 
           {/* Minutes */}
-          <div className="relative group -mt-[8vw] md:mt-0">
-             <span className="text-[50vw] md:text-[32vw] font-bold tracking-tighter icy-text font-mono transform hover:scale-105 transition-transform duration-700 ease-out select-none" style={{ textShadow: '0 0 60px rgba(186, 230, 253, 0.2)' }}>
+          <div className="relative group -mt-[12vw] md:mt-0">
+             <span className="text-[60vw] md:text-[38vw] font-black tracking-tighter time-digit-enhanced font-mono transform hover:scale-110 transition-all duration-500 ease-out select-none drop-shadow-2xl">
               {time.minutes}
             </span>
           </div>
 
         </div>
 
-        {/* Seconds - Integrated beautifully */}
-        <div className="absolute right-6 bottom-[25%] md:bottom-auto md:right-[5%] md:top-[65%] overflow-hidden mix-blend-overlay">
-          <div className="relative">
-             <span className="block text-[15vw] md:text-[8vw] font-mono font-bold text-white/40 tabular-nums leading-none tracking-tighter">
+        {/* Seconds - Enhanced with glow effect */}
+        <div className="absolute right-4 bottom-[20%] md:bottom-auto md:right-[3%] md:top-[60%] overflow-hidden">
+          <div className="relative group">
+             <span className="block text-[18vw] md:text-[10vw] font-mono font-black text-white/70 tabular-nums leading-none tracking-tighter transform hover:scale-105 transition-all duration-300 select-none" style={{
+               textShadow: '0 0 15px rgba(255,255,255,0.4), 0 0 30px rgba(186, 230, 253, 0.3), 0 0 45px rgba(14, 165, 233, 0.2)',
+               background: 'linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(186, 230, 253, 0.6) 100%)',
+               WebkitBackgroundClip: 'text',
+               WebkitTextFillColor: 'transparent',
+               backgroundClip: 'text'
+             }}>
               {time.seconds}
             </span>
+            {/* Subtle background glow */}
+            <div className="absolute inset-0 bg-gradient-to-r from-sky-400/10 to-blue-400/10 rounded-lg blur-xl scale-150 opacity-50 group-hover:opacity-75 transition-opacity duration-500"></div>
           </div>
         </div>
       </div>
