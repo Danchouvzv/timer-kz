@@ -38,6 +38,16 @@
         -webkit-text-fill-color: transparent;
         filter: drop-shadow(0 0 15px rgba(252, 211, 77, 0.3));
       }
+
+      /* Fade in/out animation for hints */
+      @keyframes fade-in-out {
+        0%, 100% { opacity: 0; transform: translateX(-50%) translateY(20px); }
+        10%, 90% { opacity: 1; transform: translateX(-50%) translateY(0); }
+      }
+
+      .animate-fade-in-out {
+        animation: fade-in-out 4s ease-in-out;
+      }
     </style>
   <script type="importmap">
 {
